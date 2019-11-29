@@ -7,5 +7,6 @@ module.exports = [
     require('./html'),
     require('./image'),
     require('./markdown'),
-    require('./gallery')
+    require('./gallery'),
+    require('./locations')
 ];

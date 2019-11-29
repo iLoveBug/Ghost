@@ -93,8 +93,14 @@ module.exports = {
             cardOptions: {version}
         });
 
+        console.log('before render2');
         const renderer = new Renderer(versionedOptions);
+
         const rendered = renderer.render(mobiledoc);
+        
+        console.log('converter render ok');
+        console.log(rendered);
+
         const serializer = new SimpleDom.HTMLSerializer(SimpleDom.voidMap);
 
         // Koenig keeps a blank paragraph at the end of a doc but we want to
@@ -106,10 +112,13 @@ module.exports = {
             }
         }
 
+        console.log('after remove last child');
+        console.log(rendered);
         // Walk the DOM output and modify nodes as needed
         // eg. to add ID attributes to heading elements
         const modifier = new DomModifier();
         modifier.modifyChildren(rendered.result);
+        console.log('modified ok');
 
         return serializer.serializeChildren(rendered.result);
     },
