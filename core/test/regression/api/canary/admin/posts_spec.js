@@ -139,7 +139,7 @@ describe('Posts API', function () {
                 .then((res) => {
                     should.exist(res.body.posts);
                     should.exist(res.body.posts[0].title);
-                    res.body.posts[0].title.should.equal('(Untitled)');
+                    res.body.posts[0].title.should.equal('未命名');
                 });
         });
     });

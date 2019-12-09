@@ -204,7 +204,7 @@
             },
             "post": {
                 "postNotFound": "Post not found.",
-                "untitled": "(Untitled)",
+                "untitled": "未命名",
                 "valueCannotBeBlank": "Value in {key} cannot be blank.",
                 "isAlreadyPublished": "Your post is already published, please reload your page.",
                 "expectedPublishedAtInFuture": "Date must be at least {cannotScheduleAPostBeforeInMinutes} minutes in the future.",

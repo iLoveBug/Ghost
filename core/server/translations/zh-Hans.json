@@ -1,0 +1,665 @@
+{
+  "common": {
+      "mail": {
+          "title": "网站{domain}"
+      },
+      "seeLinkForInstructions": "查看 {link} 获得指导。",
+      "time": {
+          "seconds": "秒"
+      },
+      "api": {
+          "authentication": {
+              "sampleBlogDescription": "思想，故事与构思",
+              "mail": {
+                  "resetPassword": "重置密码",
+                  "checkEmailForInstructions": "查看邮件获得下一步操作",
+                  "passwordChanged": "密码修改成功",
+                  "invitationAccepted": "邀请已被接受",
+                  "yourNewGhostBlog": "你的新网站"
+              }
+          },
+          "mail": {
+              "testGhostEmail": "测试电子邮箱设置"
+          },
+          "users": {
+              "mail": {
+                  "invitedByName": "{invitedByName} 邀请你加入 {blogName}"
+              }
+          },
+          "actions": {
+              "images": {
+                  "upload": "上传图片"
+              }
+          }
+      }
+  },
+  "errors": {
+      "apps": {
+          "appWillNotBeLoaded": {
+              "error": "此应用不会被加载",
+              "help": "与应用创建者联系，或者查阅应用文档获得该应用需求的详细信息。"
+          },
+          "noActivateMethodLoadingApp": {
+              "error": "加载应用 {name} 错误：未定义activate()方法。"
+          },
+          "mustProvideAppName": {
+              "error": "必须为api context指定应用名称"
+          }
+      },
+      "middleware": {
+          "api": {
+              "versionMismatch": "客户端版本 {clientVersion} 发出的请求与服务器版本 {serverVersion} 不匹配。"
+          },
+          "auth": {
+              "clientCredentialsNotProvided": "未提供客户证明",
+              "clientCredentialsNotValid": "客户认证无效",
+              "forInformationRead": "关于如何修复此问题的详细信息，请查阅：{url}。",
+              "unknownOrigin": "不能确定请求来源，。请确认存在Origin or Referrer请求头字段",
+              "mismatchedOrigin": "请求来源不正确，预期： '{expected}' ，收到： '{actual}'。",
+              "missingUserIDForSession": "缺少user id，无法创建会话。",
+              "accessDenied": "访问被拒绝。",
+              "pleaseSignIn": "请登录",
+              "authorizationFailed": "鉴权失败",
+              "missingContentMemberOrIntegration": "无法确定已认证的会员或集成。检查提供的Content API密钥，并确保在成员身份验证失败时传递了cookie。",
+              "missingAdminUserOrIntegration": "无法确定已认证的用户或集成。 如果使用会话身份验证，请检查是否传递了cookie",
+              "adminApiKeyMissing": "管理员API令牌缺少Kid标头声明。",
+              "unknownAdminApiKey": "未知的管理API密钥",
+              "unknownContentApiKey": "未知的内容API密钥",
+              "adminApiKidMissing": "缺少管理API Kid",
+              "invalidApiKeyType": "无效的API密钥类型",
+              "invalidRequest": "无效请求",
+              "invalidToken": "无效令牌",
+              "invalidTokenWithMessage": "无效令牌: {message}",
+              "incorrectAuthHeaderFormat": "授权标头格式为 \"Authorization: Ghost [token]\""
+          },
+          "privateblogging": {
+              "wrongPassword": "密码错误"
+          },
+          "spamprevention": {
+              "tooManyAttempts": "尝试次数过多",
+              "noUsername": "缺少用户名。",
+              "noPassword": "没有密码",
+              "tooManySigninAttempts": {
+                  "error": "每个IP在每 {rateSigninPeriod} 内最多尝试登录 {rateSigninAttempts} 次。",
+                  "context": "太多次登录请求。"
+              },
+              "tryAgainLater": " 请稍后再试。",
+              "waitOneHour": " 请等待 1 小时。",
+              "noEmail": "缺少电子邮件地址",
+              "forgottenPasswordEmail": {
+                  "error": "每个邮件地址在每 {rfp} 秒内最多尝试 {rfa} 次密码重置。",
+                  "context": "忘记密码重置失败。"
+              },
+              "forgottenPasswordIp": {
+                  "error": "每个IP在 {rfp} 秒内最多尝试 {rfa} 次重置密码。",
+                  "context": "网迷密码重置失败。"
+              }
+          },
+          "themehandler": {
+              "missingTheme": "当前激活主题 \"{theme}\" 不存在。",
+              "invalidTheme": "当前激活主题 \"{theme}\" 无效。",
+              "themeHasErrors": "当前激活主题 \"{theme}\" 存在错误，但是可以工作。",
+              "activateFailed": "无法激活主题 \"{theme}\"。"
+          },
+          "redirects": {
+              "register": "无法注册自定义重定向"
+          }
+      },
+      "utils": {
+          "parsepackagejson": {
+              "couldNotReadPackage": "无法读取 package.json 文件",
+              "nameOrVersionMissing": "主题文件 package.json 缺少 \"name\" 或 \"version\"",
+              "willBeRequired": "这在未来会需要，详情请见 {url}",
+              "themeFileIsMalformed": "主题文件 package.json 格式错误"
+          },
+          "blogIcon": {
+              "error": "无法获取图标文件大小。"
+          },
+          "images": {
+              "invalidDimensions": "无法获取图片文件大小。"
+          },
+          "redirectsWrongFormat": "无效的重定向文件格式。"
+      },
+      "config": {
+          "couldNotLocateConfigFile": {
+              "error": "无法定位配置文件。",
+              "help": "请检查部署环境中的 config.js 或 config.example.js 文件。"
+          },
+          "couldNotOpenForReading": {
+              "error": "无法读取文件 {file}。",
+              "help": "请检查部署环境中的 config.js 或 config.example.js 文件。"
+          },
+          "couldNotOpenForWriting": {
+              "error": "无法写入文件 {file}。",
+              "help": "请检查部署环境中的 config.js 或 config.example.js 文件。"
+          },
+          "invalidUrlInConfig": {
+              "error": "无效网站URL",
+              "description": "config.js文件中的网站URL无效。",
+              "help": "请在重启之前确认此URL有效"
+          },
+          "urlCannotContainGhostSubdir": {
+              "error": "不允许包含ghost子目录",
+              "description": "config.js中的网站url不允许包含名为ghost的子目录。",
+              "help": "请在重新启动前重命名子目录"
+          },
+          "urlCannotContainPrivateSubdir": {
+              "error": "不允许private子目录",
+              "description": "config.js中的网站url不允许包含名为private的子目录。",
+              "help": "请在重新启动前重命名子目录"
+          },
+          "dbConfigInvalid": {
+              "error": "无效的数据库配置",
+              "description": "config.js中的数据库配置无效。",
+              "help": "请确认这是一个有效的数据库配置"
+          },
+          "deprecatedProperty": {
+              "error": "配置属性[{property}]已被废弃。",
+              "explanation": "浙江在未来版本中移除，请更新你的config.js配置文件。",
+              "help": "请查看{url}获取最新的样例"
+          },
+          "invalidServerValues": {
+              "error": "无效的服务器配置",
+              "description": "配置文件config.js中的(socket, 或 host 与 port)无效。",
+              "help": "请在重新启动前提供正确的参数"
+          }
+      },
+      "general": {
+          "maintenance": "网站维护中，请稍后再试。",
+          "maintenanceUrlService": "网站正在启动中，请稍候再试。",
+          "requiredOnFuture": "这在将来会被需要，请查看{link}",
+          "internalError": "出现内部错误",
+          "jsonParse": "不能解析JSON: {context}."
+      },
+      "httpServer": {
+          "addressInUse": {
+              "error": "(EADDRINUSE) 无法启动网站",
+              "context": "端口 {port} 已被其他程序占用",
+              "help": "是否有其他网站实例在运行？"
+          },
+          "otherError": {
+              "error": "(代码：{errorNumber})",
+              "context": "启动服务器出现错误。",
+              "help": "请根据上面的错误代码查阅解决方案。"
+          }
+      },
+      "mail": {
+          "incompleteMessageData": {
+              "error": "不完整的邮件数据。"
+          },
+          "failedSendingEmail": {
+              "error": "发送邮件失败。"
+          },
+          "noMailServerAtAddress": {
+              "error": " 域名 {domain} 没有邮件服务。"
+          },
+          "reason": " 原因：{reason}。"
+      },
+      "models": {
+          "general": {
+              "sql": "无法识别的请求。"
+          },
+          "invite": {
+              "notEnoughPermission": "你没有权限执行此操作"
+          },
+          "post": {
+              "postNotFound": "文章未找到",
+              "untitled": "无标题",
+              "valueCannotBeBlank": "{key} 中的值不能为空。",
+              "isAlreadyPublished": "你的文章已发布，请重新加载页面。",
+              "expectedPublishedAtInFuture": "日期必须至少在 {cannotScheduleAPostBeforeInMinutes} 分钟以后。",
+              "noUserFound": "用户未找到",
+              "notEnoughPermission": "你没有权限执行此操作",
+              "tagUpdates": {
+                  "error": "无法保存标签",
+                  "help": "你的文章已保存，但是标签未更新。"
+              }
+          },
+          "role": {
+              "roleNotFound": "角色未找到",
+              "notEnoughPermission": "你没有权限执行此操作"
+          },
+          "settings": {
+              "valueCannotBeBlank": "[settings.key] 的值不能为空",
+              "unableToFindSetting": "未找到设置来更新 {key}",
+              "unableToFindDefaultSetting": "未找到 {key} 的缺省值"
+          },
+          "user": {
+              "missingContext": "缺少上下文",
+              "onlyOneRolePerUserSupported": "目前仅支持每个用户一个角色。",
+              "methodDoesNotSupportOwnerRole": "此方法不支持分配所有者角色",
+              "passwordDoesNotComplyLength": "你的口令长度必须至少 {minLength} 个字符",
+              "passwordDoesNotComplySecurity": "抱歉，您不能使用不安全的密码。",
+              "notEnoughPermission": "您无权执行此操作",
+              "noUserWithEnteredEmailAddr": "没有使用该电子邮件地址的用户。",
+              "userIsInactive": "具有该电子邮件地址的用户未激活。",
+              "userUpdateError": {
+                  "emailIsAlreadyInUse": "电子邮件已在使用中",
+                  "context": "登录期间用户更新引发的错误",
+                  "help": "登录后访问并保存您的个人资料以检查问题。"
+              },
+              "incorrectPassword": "您的密码不正确。",
+              "accountLocked": "您的帐户已被锁定。 请通过单击“忘记密码？”链接重设密码以再次登录！",
+              "accountSuspended": "您的帐户已被暂停。",
+              "newPasswordsDoNotMatch": "您的新密码不匹配",
+              "passwordRequiredForOperation": "此操作需要密码",
+              "expiredToken": "令牌已过期",
+              "tokenLocked": "令牌已锁定",
+              "invalidToken": "无效令牌",
+              "userNotFound": "找不到用户",
+              "ownerNotFound": "找不到所有者",
+              "onlyOwnerCanTransferOwnerRole": "只有所有者才能转移所有者角色。",
+              "onlyAdmCanBeAssignedOwnerRole": "只能为管理员分配所有者角色。",
+              "onlyActiveAdmCanBeAssignedOwnerRole": "只能为已激活的管理员分配所有者角色。"
+          },
+          "api_key": {
+              "apiKeyNotFound": "找不到API金钥"
+          },
+          "email": {
+              "emailNotFound": "电子邮件找不到。",
+              "retryNotAllowed": "只能重试失败的电子邮件"
+          },
+          "base": {
+              "index": {
+                  "missingContext": "缺少上下文"
+              },
+              "token": {
+                  "noUserFound": "未找到用户",
+                  "tokenNotFound": "未找到令牌"
+              },
+              "invalidDate": "`{key}`的日期格式无效。"
+          },
+          "plugins": {
+              "filter": {
+                  "errorParsing": "错误解析过滤器",
+                  "forInformationRead": "关于如何使用过滤器的更多信息，请见{url}"
+              }
+          }
+      },
+      "permissions": {
+          "noActionsMapFound": {
+              "error": "找不到任何操作映射，请确保已将权限加载到数据库中，然后在使用前调用Permissions.init（）"
+          },
+          "applyStatusRules": {
+              "error": "您无权检索具有该状态的{docName}"
+          },
+          "noPermissionToAction": "您无权执行此操作"
+      },
+      "updateCheck": {
+          "checkingForUpdatesFailed": {
+              "error": "检查更新失败，您的站点将继续运行。",
+              "help": "如果您反复遇到此错误，请从{url}寻求帮助。"
+          },
+          "unableToDecodeUpdateResponse": {
+              "error": "无法解码更新响应"
+          }
+      },
+      "api": {
+          "common": {
+              "invalidTokenStructure": "无效的令牌结构",
+              "notImplemented": "服务器不支持满足请求所需的功能。"
+          },
+          "authentication": {
+              "setupUnableToRun": "数据库缺少夹具(Fixture)数据。 请重置数据库，然后重试。",
+              "setupMustBeCompleted": "发出此请求之前，必须完成设置(Setup)。",
+              "noEmailProvided": "没有提供电子邮件。",
+              "noTokenProvided": "没有提供令牌。",
+              "noPasswordProvided": "没有提供密码。",
+              "noNameProvided": "没有提供名字。",
+              "invalidEmailReceived": "服务器未收到有效的电子邮件",
+              "setupAlreadyCompleted": "设置已经完成。",
+              "unableToSendWelcomeEmail": "无法发送欢迎电子邮件，您的网站将继续运行。",
+              "checkEmailConfigInstructions": "有关配置电子邮件的说明，请参见{url}。",
+              "notLoggedIn": "你没有登录。",
+              "notTheBlogOwner": "您不是网站所有者。",
+              "invalidTokenTypeHint": "给定了无效的token_type_hint。",
+              "invalidTokenProvided": "提供的令牌无效",
+              "tokenRevocationFailed": "令牌吊销失败"
+          },
+          "configuration": {
+              "invalidKey": "无效的密钥"
+          },
+          "db": {
+              "missingFile": "请选择要导入的数据库文件。",
+              "invalidFile": "不支持的文件。 请尝试以下任何格式：{extensions}",
+              "noPermissionToExportData": "您无权导出数据（无权限）。",
+              "noPermissionToImportData": "您无权导入数据（无权限）。"
+          },
+          "mail": {
+              "noPermissionToSendEmail": "您无权发送邮件。",
+              "cannotFindCurrentUser": "找不到当前用户"
+          },
+          "notifications": {
+              "noPermissionToBrowseNotif": "您无权浏览通知。",
+              "noPermissionToAddNotif": "您无权添加通知。",
+              "noPermissionToDestroyNotif": "您无权销毁通知。",
+              "noPermissionToDismissNotif": "您无权取消此通知。",
+              "notificationDoesNotExist": "通知不存在。"
+          },
+          "posts": {
+              "postNotFound": "文章未找到。"
+          },
+          "authors": {
+              "notFound": "作者未找到。"
+          },
+          "pages": {
+              "pageNotFound": "页面未找到。"
+          },
+          "job": {
+              "notFound": "任务未找到。",
+              "publishInThePast": "使用强制标志使用过去的时间发布文章。"
+          },
+          "redirects": {
+              "missingFile": "请选择一个JSON文件。",
+              "invalidFile": "请选择一个有效的JSON文件导入。"
+          },
+          "resource": {
+              "resourceNotFound": "{resource}未找到。"
+          },
+          "routes": {
+              "missingFile": "请选择一个YAML文件。",
+              "invalidFile": "请选择一个有效的YAML文件进行导入。"
+          },
+          "settings": {
+              "problemFindingSetting": "查找设置: {key}失败",
+              "accessCoreSettingFromExtReq": "尝试从外部请求访问核心设置",
+              "activeThemeSetViaAPI": {
+                  "error": "尝试通过设置API更改当前主题",
+                  "help": "请改用主题API接口激活主题"
+              },
+              "invalidJsonInLabs": "错误：settings.labs中的JSON无效",
+              "labsColumnCouldNotBeParsed": "键为“labs“的列无法解析为JSON",
+              "tryUpdatingLabs": "请尝试在实验室页面上更新设置，或手动编辑数据库",
+              "noPermissionToEditSettings": "您无权编辑设置。",
+              "noPermissionToReadSettings": "您无权读取设置。"
+          },
+          "slugs": {
+              "couldNotGenerateSlug": "无法产生slug。",
+              "unknownSlugType": "未知slug类型'{type}'."
+          },
+          "members": {
+              "memberNotFound": "会员未找到",
+              "memberAlreadyExists": "此电子邮件地址已经是会员。"
+          },
+          "tags": {
+              "tagNotFound": "标签未找到。"
+          },
+          "themes": {
+              "noPermissionToBrowseThemes": "您无权浏览主题。",
+              "noPermissionToEditThemes": "您无权编辑主题。",
+              "themeDoesNotExist": "主题不存在。",
+              "invalidTheme": "主题不兼容或存在错误。",
+              "invalidThemeName": "请选择一个有效主题。",
+              "missingFile": "请选择一个主题。",
+              "invalidFile": "请选择一个有效的zip压缩文件。",
+              "overrideCasper": "请重命名zip文件，不允许覆盖缺省casper主题。",
+              "destroyCasper": "不允许删除缺省casper主题。",
+              "destroyActive": "不允许删除当前激活主题。"
+          },
+          "images": {
+              "missingFile": "请选择一张图片。",
+              "invalidFile": "请选择一张有效图片。",
+              "isNotSquare": "请选择一张正方形的有效图片。"
+          },
+          "icons": {
+              "missingFile": "请选择一个图标。",
+              "invalidFile": "图标必须是正方形 .ico 或 .png 文件，尺寸在 60px - 1000px之间，小于100kb。",
+              "couldNotGetSize": "无法获得图标尺寸。"
+          },
+          "users": {
+              "userNotFound": "用户未找到",
+              "cannotChangeOwnRole": "不能修改自己的角色。",
+              "cannotChangeStatus": "您无法更改自己的状态。",
+              "cannotChangeOwnersRole": "无法更改所有者的角色",
+              "noPermissionToEditUser": "您无权编辑此用户",
+              "noPermissionToAddUser": "您无权添加此用户",
+              "noEmailProvided": "没有提供电子邮件。",
+              "userAlreadyRegistered": "用户已经注册。",
+              "noPermissionToDestroyUser": "您无权销毁该用户。",
+              "noPermissionToChangeUsersPwd": "您无权更改该用户的密码"
+          },
+          "utils": {
+              "noPermissionToCall": "您无权{method}{docName}",
+              "noRootKeyProvided": "('{docName}')未提供根密钥。",
+              "invalidStructure": "没有为：{key}提供有效的对象结构",
+              "invalidIdProvided": "提供的ID无效。"
+          },
+          "invites": {
+              "inviteNotFound": "未找到邀请。",
+              "inviteExpired": "邀请已过期。",
+              "emailIsRequired": "请填写电子邮箱账号",
+              "roleIsRequired": "请指定用户角色",
+              "roleNotFound": "角色未找到",
+              "errorSendingEmail": {
+                  "error": "发送邮件失败: {message}",
+                  "help": "请检查邮件设置并重新发送"
+              },
+              "notAllowedToInviteOwner": "不允许邀请网站所有者。",
+              "notAllowedToInvite": "不允许邀请此用户角色。"
+          },
+          "webhooks": {
+              "webhookAlreadyExists": "目标URL已经用于此事件。"
+          },
+          "oembed": {
+              "noUrlProvided": "未提供URL。",
+              "unknownProvider": "找不到指定URL的提供程序。"
+          },
+          "userMessages": {
+              "InternalServerError": "内部服务器错误，无法{action}。",
+              "IncorrectUsageError": "使用不正确，不能{action}。",
+              "NotFoundError": "资源未找到，不能{action}。",
+              "BadRequestError": "不理解的请求，不能{action}。",
+              "UnauthorizedError": "授权错误，不能{action}。",
+              "NoPermissionError": "权限错误，不能{action}。",
+              "ValidationError": "验证错误，不能{action}。",
+              "UnsupportedMediaTypeError": "不支持的媒体错误，不能{action}。",
+              "TooManyRequestsError": "太多请求，不能{action}。",
+              "MaintenanceError": "服务器下线维护，不能{action}。",
+              "MethodNotAllowedError": "方法不允许，不能{action}.",
+              "RequestEntityTooLargeError": "请求太大，不能{action}。",
+              "TokenRevocationError": "令牌不可用，不能{action}。",
+              "VersionMismatchError": "版本不匹配，不能{action}。",
+              "DataExportError": "导出内容时出错。",
+              "DataImportError": "输入重复，无法保存{action}。",
+              "DatabaseVersionError": "数据库版本兼容错误，不能{action}。",
+              "EmailError": "发送电子邮件时出错！",
+              "ThemeValidationError": "主题验证错误，不能{action}。",
+              "DisabledFeatureError": "主题验证错误，{{{helperName}}}辅助程序不可用，不能{action}。",
+              "UpdateCollisionError": "保存失败！ 有人正在编辑此文章。"
+          }
+      },
+      "data": {
+          "export": {
+              "errorExportingData": "导出数据时出错"
+          },
+          "import": {
+              "dataImporter": {
+                  "unableToFindOwner": "找不到所有者"
+              },
+              "index": {
+                  "duplicateEntryFound": "找到重复的条目。 为{offendingProperty}找到了多个“ {value}”值。"
+              },
+              "utils": {
+                  "dataLinkedToUnknownUser": "尝试导入链接到未知用户ID {userToMap}的数据"
+              }
+          },
+          "importer": {
+              "index": {
+                  "couldNotCleanUpFile": {
+                      "error": "导入无法清理文件",
+                      "context": "您的网站将继续按预期工作"
+                  },
+                  "unsupportedRoonExport": "您的zip文件看起来像是Roon的旧格式导出文件，请重新导出Roon博客，然后重试。",
+                  "noContentToImport": "Zip文件不包含任何要导入的内容。",
+                  "invalidZipStructure": "无效的zip文件结构。",
+                  "invalidZipFileBaseDirectory": "无效的zip文件：基本目录读取失败",
+                  "zipContainsMultipleDataFormats": "压缩文件包含多种数据格式，请拆分并分别导入。"
+              },
+              "handlers": {
+                  "json": {
+                      "invalidJsonFormat": "无效JSON格式，需要 `{ db: [exportedData] }`",
+                      "apiDbImportContent": "API数据库导入内容",
+                      "checkImportJsonIsValid": "检查导入文件是否为有效的JSON。",
+                      "failedToParseImportJson": "解析导入的JSON文件失败。"
+                  }
+              }
+          }
+      },
+      "services": {
+          "ping": {
+              "requestFailed": {
+                  "error": "{service}服务无法发送ping请求，您的站点将继续运行。",
+                  "help": "如果您反复遇到此错误，请在{url}上寻求帮助。"
+              }
+          },
+          "settings": {
+              "yaml": {
+                  "error": "不能解析文件{file}：{context}。",
+                  "help": "检查您的{file}文件是否有错别字并解决命名的问题。",
+                  "validate": "以下定义“{at}”无效：{reason}"
+              },
+              "loader": "尝试从“{path}”加载{setting}的YAML设置时出错。",
+              "ensureSettings": "尝试访问{path}中的设置文件时出错。"
+          },
+          "mega": {
+              "requestFailed": {
+                  "error" : "电子邮件服务无法发送电子邮件。"
+              }
+          }
+      },
+      "errors": {
+          "noMessageSupplied": "没有消息",
+          "error": "\n错误：",
+          "warning": "\n警告：",
+          "anErrorOccurred": "发生了一个错误",
+          "unknownErrorOccurred": "发生了一个未知错误。",
+          "unknownError": "未知错误",
+          "unknownApiError": "未知API错误",
+          "databaseIsReadOnly": "您的数据库处于只读模式。 访问者可以阅读您的网站，但是您无法登录或添加文章。",
+          "checkDatabase": "检查您的数据库文件，并确保文件所有者和权限正确。",
+          "notEnoughPermission": "您无权执行此操作",
+          "errorWhilstRenderingError": "呈现错误页面时出错",
+          "errorTemplateHasError": "错误模板有错误",
+          "oopsErrorTemplateHasError": "糟糕，错误模板中似乎有错误。",
+          "encounteredError": "遇到错误：",
+          "whilstTryingToRender": "尝试呈现错误的页面：",
+          "renderingErrorPage": "渲染错误页面",
+          "caughtProcessingError": "系统在中间件层中捕获到一个处理错误。",
+          "imageNotFound": "找不到图片",
+          "imageNotFoundWithRef": "找不到图片：{img}",
+          "cannotReadImage": "不能读取图片：{img}",
+          "pageNotFound": "页面未找到",
+          "resourceNotFound": "资源未找到"
+      }
+  },
+  "warnings": {
+      "index": {
+          "usingDirectMethodToSendEmail": "尝试使用直接方法发送电子邮件。\n建议您明确配置电子邮件服务。",
+          "unableToSendEmail": "系统当前无法发送电子邮件。"
+      },
+      "helpers": {
+          "helperNotAvailable": "辅助程序\\{\\{{helperName}\\}\\}不可用",
+          "flagMustBeEnabled": "如果您希望使用\\{\\{{helperName}\\}\\}辅助程序，必须在实验室中启用{flagName}标记。",
+          "seeLink": "查看{url}",
+          "mustBeCalledAsBlock": "必须将\\{\\{{helperName}\\}\\}辅助程序成为一个块。例如：\\{\\{#{helperName}\\}\\} \\{\\{/{helperName}\\}\\}",
+          "asset": {
+              "pathIsRequired": "\\{\\{asset\\}\\}辅助程序必须是一个路径"
+          },
+          "foreach": {
+              "iteratorNeeded": "需要将迭代器传递给#foreach"
+          },
+          "get": {
+              "invalidResource": "辅助程序get方法的资源无效"
+          },
+          "has": {
+              "invalidAttribute": "辅助程序has方法的属性无效或无属性"
+          },
+          "index": {
+              "missingHelper": "缺少辅助程序：'{arg}'"
+          },
+          "is": {
+              "invalidAttribute": "辅助程序is方法的属性无效或无属性"
+          },
+          "link": {
+              "hrefIsRequired": "\\{\\{#link\\}\\}\\{\\{/link\\}\\}辅助程序需要href=\"\"属性。"
+          },
+          "link_class": {
+              "forIsRequired": "\\{\\{link_class\\}\\}辅助程序需要for=\"\"属性。"
+          },
+          "navigation": {
+              "invalidData": "导航数据不是对象或函数",
+              "valuesMustBeDefined": "必须定义label, url和current的所有值",
+              "valuesMustBeString": "无效值, Url与Label必须是字符串"
+          },
+          "page_url": {
+              "isDeprecated": "警告：不建议使用pageUrl，请改用page_url \n辅助程序pageUrl在Ghost 0.4.2中已替换为page_url，并将在Ghost 0.6中被完全删除\n在您主题的pagination.hbs文件中，pageUrl应该重命名为page_url。"
+          },
+          "pagination": {
+              "invalidData": "\\ {\\ {分页\\} \\}辅助程序在分页上下文之外使用。 参见https://ghost.org/docs/api/handlebars-themes/helpers/pagination/。",
+              "valuesMustBeDefined": "必须为page，pages，limit和total定义所有值",
+              "nextPrevValuesMustBeNumeric": "无效值, Next/Prev必须为数字",
+              "valuesMustBeNumeric": "无效值, 请检查page, pages, limit与total是否为数字"
+          },
+          "plural": {
+              "valuesMustBeDefined": "必须为empty, singular和plural定义所有值"
+          },
+          "img_url": {
+              "attrIsRequired": "需要属性，例如：\\{\\{img_url feature_image\\}\\}",
+              "attrIsUnknown": "传递给\\{\\{img_url\\}\\}的属性未知"
+          },
+          "template": {
+              "templateNotFound": "模版{name}未找到。"
+          }
+      }
+  },
+  "notices": {
+      "index": {
+          "welcomeToGhost": "欢迎来到您的网站"
+      },
+      "httpServer": {
+          "cantTouchThis": "不能碰这个",
+          "ghostIsRunning": "网站正在运行...",
+          "yourBlogIsAvailableOn": "你的网站已成功运行在 {url}",
+          "ctrlCToShutDown": "Ctrl+C 关闭网站",
+          "ghostIsRunningIn": "网站运行在 {env} 环境...",
+          "listeningOn": "监听端口: {host}:{port}",
+          "urlConfiguredAs": "URL配置未: {url}",
+          "ghostHasShutdown": "网站已关闭",
+          "yourBlogIsNowOffline": "你的网站已离线",
+          "ghostWasRunningFor": "网站运行为",
+          "ghostIsClosingConnections": "网站正在关闭连接"
+      },
+      "mail": {
+          "messageSent": "邮件已发送，请坚持收件箱和垃圾邮件目录！"
+      },
+      "api": {
+          "users": {
+              "pwdChangedSuccessfully": "密码修改成功"
+          }
+      },
+      "data": {
+          "fixtures": {
+              "jQueryRemoved": "jQuery已从内核中移除，目前从jQuery Foundation的CDN加载。"
+          },
+          "utils": {
+              "index": {
+                  "noSupportForDatabase": "不支持的数据库客户端 {client}"
+              }
+          },
+          "validation": {
+              "index": {
+                  "valueCannotBeBlank": "[{tableName}.{columnKey}]中的值不能为空",
+                  "valueMustBeBoolean": "[{tableName}.{columnKey}]只能是true, false, 0 或者 1。",
+                  "valueExceedsMaxLength": "[{tableName}.{columnKey}]中的值超过了允许的字符最大长度：{maxlength}。",
+                  "valueIsNotInteger": "[{tableName}.{columnKey}]中的值不是一个整数",
+                  "themeCannotBeActivated": "主题 {themeName} 当前未安装，无法激活。",
+                  "validationFailed": "{key} 的 ({validationName}) 验证失败。",
+                  "schemaValidationFailed": "'{key}'的验证失败。",
+                  "validationFailedTypes": {
+                      "isLength": "[{tableName}.{key}]中的值超过了允许的字符最大长度： {max} 。"
+                  }
+              }
+          }
+      }
+  }
+}
