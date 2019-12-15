@@ -56,7 +56,7 @@ module.exports = createCard({
         code.appendChild(dom.createRawHTMLSection(data));
         div.appendChild(code);
 
-        let locationComponent = dom.createElement('locations-view');
+        let locationComponent = dom.createElement('location-list');
         locationComponent.setAttribute('width', '100%');
         locationComponent.setAttribute('height', '500px');
         locationComponent.setAttribute('access-key', '8325164e247e15eea68b59e89200988b');
