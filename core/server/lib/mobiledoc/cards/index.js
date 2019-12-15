@@ -8,5 +8,5 @@ module.exports = [
     require('./image'),
     require('./markdown'),
     require('./gallery'),
-    require('./locations')
+    require('./location-list')
 ];
